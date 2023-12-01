@@ -13,7 +13,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    word1 = ["abc","d","defg"]
+    word1 = ["abc", "d", "defg"]
     word2 = ["abcddef"]
     solution = Solution()
     print(('no', 'yes')[solution.arrayStringsAreEqual(word1, word2)])
