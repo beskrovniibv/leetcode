@@ -23,5 +23,5 @@ class Solution:
 
 if __name__ == '__main__':
     solution = Solution()
-    answer = solution.generate(5)
+    answer = solution.generate(34)
     print(answer)
