@@ -12,7 +12,10 @@ class Solution:
             c = c.lower()
             if c in ascii_letters + digits:
                 r.append(c)
-        return r == list(reversed(r))
+        for i in range((len(r) + 2 - 1) // 2):
+            if r[i] != r[len(r) - i - 1]:
+                return False
+        return True
 
 
 if __name__ == '__main__':
