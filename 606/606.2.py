@@ -14,14 +14,26 @@ class TreeNode:
 
 class Solution:
     def tree2str(self, root: Optional[TreeNode]) -> str:
-        if not root:
-            return ''
-        result = str(root.val)
-        if root.left or root.right:
-            result += '(' + self.tree2str(root.left) + ')'
-        if root.right:
-            result += '(' + self.tree2str(root.right) + ')'
-        return result
+        result = []
+        queue = []
+        queue.append((root, 'v'))
+        while len(queue) > 0:
+            node, position = queue.pop()
+            # if position == 'r':
+            if position in 'lr':
+                result.append('(')
+            result.append(str(node.val))
+            if position == 'r':
+                result.append(')')
+            if not node.left and node.right:
+                result.append('()')
+            if node.right:
+                queue.append((node.right, 'r'))
+            else:
+                result.append(')')
+            if node.left:
+                queue.append((node.left, 'l'))
+        return ''.join(result)
 
 
 if __name__ == '__main__':
