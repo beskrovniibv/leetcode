@@ -40,8 +40,8 @@ Return *the minimum possible penalty after performing the operations*.
 >The bag with the most number of balls has 2 balls, so your penalty is 2, and you should return 2.
 
 **Constraints**:
-
-- 1 <= nums.length <= 10<sup>5</sup>
-- 1 <= maxOperations, nums[i] <= 10<sup>9</sup>
+>
+>- 1 <= nums.length <= 10<sup>5</sup>
+>- 1 <= maxOperations, nums[i] <= 10<sup>9</sup>
 
 https://leetcode.com/problems/minimum-limit-of-balls-in-a-bag
