@@ -1,0 +1,16 @@
+#! /usr/bin/python python
+
+from typing import List
+
+
+class Solution:
+    def isArraySpecial(self, nums: List[int], queries: List[List[int]]) -> List[bool]:
+        pass
+
+
+def main():
+    pass
+
+
+if __name__ == "__main__":
+    main()
