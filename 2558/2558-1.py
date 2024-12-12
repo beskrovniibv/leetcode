@@ -5,13 +5,12 @@ from typing import List
 class Solution:
     def pickGifts(self, gifts: List[int], k: int) -> int:
         result = sum(gifts)
-        gifts.sort()
         for _ in range(k):
+            gifts.sort()
             pile = gifts[-1]
             leave = int(pile**0.5)
             result -= pile - leave
             gifts[-1] = leave
-            gifts.sort()
         return result
 
 
