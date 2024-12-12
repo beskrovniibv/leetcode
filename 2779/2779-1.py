@@ -9,7 +9,7 @@ class Solution:
         nums.sort()
         l, r = 0, 0
         ans = 0
-        while l < n:
+        while l < n and r < n:
             while r < n and (nums[r] - nums[l] <= 2*k):
                 ans = max(ans, r - l + 1)
                 r += 1
