@@ -22,7 +22,6 @@ class Solution:
                     right = min(right, nums[l] + 2)
                     l -= 1
                 l += 1
-            print(nums[l:r], ans, r - l + 1)
             ans += r - l + 1
         return ans
 
