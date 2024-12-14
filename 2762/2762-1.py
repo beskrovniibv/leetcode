@@ -5,7 +5,15 @@ from typing import List
 
 class Solution:
     def continuousSubarrays(self, nums: List[int]) -> int:
-        pass
+        result = 0
+        n = len(nums)
+        for ln in range(1, n + 1):
+            for le in range(n - ln + 1):
+                suba = nums[le:le + ln]
+                mn = min(suba)
+                mx = max(suba)
+                result += 1 if mx - mn <= 2 else 0
+        return result
 
 
 def main():
