@@ -23,7 +23,7 @@ def main():
         ),
         (
             [1, 2, 3], 6
-        )
+        ),
     )
     solution = Solution()
     for idx, example in enumerate(examples):
