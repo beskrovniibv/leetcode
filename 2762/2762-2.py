@@ -9,7 +9,7 @@ class Solution:
         result = 0
         slices = []
         n = len(nums)
-        l = 0
+        l, r = 0, 0
         mins = deque([(nums[l], l)])
         maxs = deque([(nums[l], l)])
         w = deque([nums[l]])
@@ -25,9 +25,9 @@ class Solution:
                         maxs.popleft()
                     l += 1
                     w.popleft()
-            if mins and mins[-1][0] > num:
+            while mins and mins[-1][0] > num:
                 mins.pop()
-            if maxs and maxs[-1][0] < num:
+            while maxs and maxs[-1][0] < num:
                 maxs.pop()
             mins.append((num, r))
             maxs.append((num, r))
@@ -35,34 +35,33 @@ class Solution:
         oe = None
         for slice in slices:
             b, e = slice
-            # b = max(oe or b - 1, b - 1) + 1
             l = e - b + 1
             result += (l * (l + 1))//2
             if oe:
-                i = e - oe
-                # if i > 0:
-                #     result -= i*(i - 1)//2
-                if b > oe:
-                    oe = e
-            else:
-                oe = e
+                i = oe - b + 1
+                if i > 0:
+                    result -= i*(i + 1)//2
+            oe = e
         return result
 
 
 def main():
     examples = (
-        # (
-        #     [5, 4, 2, 4], 8
-        # ),
-        # (
-        #     [1, 2, 3], 6
-        # ),
-        # (
-        #     [3, 1, 3, 5, 1, 3], 11
-        # ),
+        (
+            [5, 4, 2, 4], 8
+        ),
+        (
+            [1, 2, 3], 6
+        ),
+        (
+            [3, 1, 3, 5, 1, 3], 11
+        ),
         (
             [12, 13, 14, 13, 12, 11, 10, 10, 12, 11, 10, 11, 9, 14], 56
         ),
+        (
+            [21], 1
+        )
     )
     solution = Solution()
     for idx, example in enumerate(examples):
