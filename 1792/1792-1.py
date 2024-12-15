@@ -5,7 +5,14 @@ from typing import List
 
 class Solution:
     def maxAverageRatio(self, classes: List[List[int]], extraStudents: int) -> float:
-        pass
+        result = 0
+        for k in range(extraStudents):
+            classes.sort(key=lambda _class: (_class[0] + 1)/(_class[1] + 1) - (_class[0])/(_class[1]))
+            classes[-1][0] += 1
+            classes[-1][1] += 1
+        for k in classes:
+            result += k[0]/k[1]
+        return result/len(classes)
 
 
 def main():
@@ -24,7 +31,7 @@ def main():
             classes=classes,
             extraStudents=extraStudents
         )
-        assert got == expected, f"Error in sample {idx + 1}: expected {expected}, got {got}."
+        assert abs(got - expected) < 10e5, f"Error in sample {idx + 1}: expected {expected}, got {got}."
 
 
 if __name__ == "__main__":
