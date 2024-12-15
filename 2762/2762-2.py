@@ -12,10 +12,8 @@ class Solution:
         l, r = 0, 0
         mins = deque([(nums[l], l)])
         maxs = deque([(nums[l], l)])
-        w = deque([nums[l]])
         for r in range(1, n):
             num = nums[r]
-            w.append(num)
             if abs(mins[0][0] - num) > 2 or abs(maxs[0][0] - num) > 2:
                 slices.append((l, r - 1))
                 while (mins and abs(mins[0][0] - num) > 2) or (maxs and abs(maxs[0][0] - num) > 2):
@@ -24,7 +22,6 @@ class Solution:
                     if l == maxs[0][1]:
                         maxs.popleft()
                     l += 1
-                    w.popleft()
             while mins and mins[-1][0] > num:
                 mins.pop()
             while maxs and maxs[-1][0] < num:
@@ -32,16 +29,15 @@ class Solution:
             mins.append((num, r))
             maxs.append((num, r))
         slices.append((l, r))
-        oe = None
+        previous_end = None
         for slice in slices:
             b, e = slice
             l = e - b + 1
             result += (l * (l + 1))//2
-            if oe:
-                i = oe - b + 1
-                if i > 0:
-                    result -= i*(i + 1)//2
-            oe = e
+            i = (previous_end or b - 1) - b + 1
+            if i > 0:
+                result -= i*(i + 1)//2
+            previous_end = e
         return result
 
 
@@ -61,6 +57,9 @@ def main():
         ),
         (
             [21], 1
+        ),
+        (
+            [65, 66, 67, 66, 66, 65, 64, 65, 65, 64], 43
         )
     )
     solution = Solution()
