@@ -29,6 +29,7 @@ class Solution:
                     r = l - 1
         return "".join(result)
 
+
 def main():
     examples = (
         (
