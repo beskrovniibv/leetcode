@@ -43,12 +43,12 @@ class Solution:
 
 def main():
     examples = (
-        # (
-        #     "cczazcc", 3, "zzcccac"
-        # ),
-        # (
-        #     "aababab", 2, "bbabaa"
-        # ),
+        (
+            "cczazcc", 3, "zzcccac"
+        ),
+        (
+            "aababab", 2, "bbabaa"
+        ),
         (
             "robnsdvpuxbapuqgopqvxdrchivlifeepy", 2, "yxxvvuvusrrqqppopponliihgfeeddcbba"
         ),
