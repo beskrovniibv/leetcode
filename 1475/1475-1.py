@@ -5,7 +5,18 @@ from typing import List
 
 class Solution:
     def finalPrices(self, prices: List[int]) -> List[int]:
-        pass
+        n = len(prices)
+        discounts = [0] * n
+        stack = []
+        for i, price in enumerate(prices):
+            while stack and stack[-1][0] >= price:
+                _, j = stack.pop()
+                discounts[j] = i
+            stack.append((price, i))
+        while stack:
+            _, j = stack.pop()
+            discounts[j] = -1
+        return [price - (prices[discount] if discount >= 0 else 0) for price, discount in zip(prices, discounts)]
 
 
 def main():
