@@ -5,7 +5,22 @@ from typing import List
 
 class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
-        pass
+        n = len(arr)
+        result = 0
+        new = True
+        for i in range(n):
+            if new:
+                left = i
+                mn = arr[i]
+                mx = arr[i]
+                new = False
+            else:
+                mn = min(mn, arr[i])
+                mx = max(mx, arr[i])
+            if mn == left and mx == i:
+                result += 1
+                new = True
+        return result
 
 
 def main():
@@ -15,6 +30,9 @@ def main():
         ),
         (
             [1, 0, 2, 3, 4], 4
+        ),
+        (
+            [1, 2, 0, 3], 2
         ),
     )
     solution = Solution()
