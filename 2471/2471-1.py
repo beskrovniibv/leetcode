@@ -37,8 +37,6 @@ class Solution:
         return result
 
 
-
-
 def main():
 # Input: root = [1,4,3,7,6,8,5,null,null,null,null,9,null,10]
 
