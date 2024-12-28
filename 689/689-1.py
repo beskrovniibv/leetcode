@@ -18,7 +18,7 @@ def main():
         ),
     )
     solution = Solution()
-    for idx, example in examples:
+    for idx, example in enumerate(examples):
         nums, k, expected = example
         got = solution.maxSumOfThreeSubarrays(
             nums=nums,
