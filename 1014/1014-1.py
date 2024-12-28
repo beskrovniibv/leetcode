@@ -5,7 +5,12 @@ from typing import List
 
 class Solution:
     def maxScoreSightseeingPair(self, values: List[int]) -> int:
-        pass
+        result = 0
+        partial = 0
+        for value in values:
+            result = max(result, value + partial)
+            partial = max(partial, value) - 1
+        return result
 
 
 def main():
