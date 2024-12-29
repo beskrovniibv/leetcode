@@ -1,6 +1,5 @@
 #! /usr/bin/python python python3
 
-import collections
 from functools import lru_cache
 from typing import List
 
