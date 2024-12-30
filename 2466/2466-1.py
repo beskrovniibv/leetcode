@@ -2,7 +2,16 @@
 
 class Solution:
     def countGoodStrings(self, low: int, high: int, zero: int, one: int) -> int:
-        pass
+        MODULO = 1_000_000_007
+        dp = [1] + [0]*high
+        for end in range(1, high + 1):
+            if end >= zero:
+                dp[end] += dp[end - zero]
+            if end >= one:
+                dp[end] += dp[end - one]
+            dp[end] %= MODULO
+        result = sum(dp[low:high + 1]) % MODULO
+        return result
 
 
 def main():
