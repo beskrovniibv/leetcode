@@ -5,7 +5,17 @@ from typing import List
 
 class Solution:
     def waysToSplitArray(self, nums: List[int]) -> int:
-        pass
+        n = len(nums)
+        psum = [0] + [0]*n
+        for i in range(1, n + 1):
+            psum[i] = psum[i - 1] + nums[i - 1]
+        result = 0
+        for i in range(1, n):
+            l = psum[i] - psum[0]
+            r = psum[n] - psum[i]
+            if l >= r:
+                result += 1
+        return result
 
 
 def main():
