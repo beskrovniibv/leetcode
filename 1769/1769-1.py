@@ -5,7 +5,20 @@ from typing import List
 
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
-        pass
+        boxes = list(map(int, list(boxes)))
+        n = len(boxes)
+        result = [0]*n
+        c = 0
+        for i in range(1, n):
+            c += boxes[i - 1]
+            result[i] = result[i - 1] + c
+        c = 0
+        s = 0
+        for i in range(n - 2, -1, -1):
+            c += boxes[i + 1]
+            s += c
+            result[i] += s
+        return result
 
 
 def main():
