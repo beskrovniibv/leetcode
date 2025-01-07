@@ -5,16 +5,23 @@ from typing import List
 
 class Solution:
     def stringMatching(self, words: List[str]) -> List[str]:
-        pass
+        result = set()
+        for i, w1 in enumerate(words):
+            for j, w2 in enumerate(words):
+                if j == i:
+                    continue
+                if w2.count(w1) > 0:
+                    result.add(w1)
+        return list(result)
 
 
 def main():
     examples = (
         (
-            ["mass", "as", "hero", "superhero"], ["as", "hero"]
+            ["mass", "as", "hero", "superhero"], ["hero", "as"]
         ),
         (
-            ["leetcode", "et", "code"], ["et", "code"]
+            ["leetcode", "et", "code"], ["code", "et", ]
         ),
         (
             ["blue", "green", "bu"], []
