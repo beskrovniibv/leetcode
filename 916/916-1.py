@@ -9,7 +9,22 @@ class Solution:
 
 
 def main():
-    pass
+    examples = (
+        (
+            ["amazon", "apple", "facebook", "google", "leetcode"], ["e", "o"], ["facebook", "google", "leetcode"]
+        ),
+        (
+            ["amazon", "apple", "facebook", "google", "leetcode"], ["l", "e"], ["apple", "google", "leetcode"]
+        ),
+    )
+    solution = Solution()
+    for idx, example in enumerate(examples):
+        wosrd1, words2, expected = example
+        got = solution.wordSubsets(
+            words1=wosrd1,
+            words2=words2
+        )
+        assert got == expected, f"Error in sample {idx + 1}: expected {expected}, got {got}."
 
 
 if __name__ == "__main__":
