@@ -5,7 +5,25 @@ from typing import List
 
 class Solution:
     def wordSubsets(self, words1: List[str], words2: List[str]) -> List[str]:
-        pass
+        wc1 = [{} for word in words1]
+        wc2 = [{} for word in words2]
+        for i, word in enumerate(words1):
+            for c in word:
+                wc1[i][c] = wc1[i].get(c, 0) + 1
+        for i, word in enumerate(words2):
+            for c in word:
+                wc2[i][c] = wc2[i].get(c, 0) + 1
+        result = [0]*len(words1)
+        for i, word2 in enumerate(words2):
+            for j, word1 in enumerate(words1):
+                for key, value in wc2[i].items():
+                    if wc1[j].get(key, 0) >= value:
+                        continue
+                    else:
+                        break
+                else:
+                    result[j] += 1
+        return [word for i, word in enumerate(words1) if result[i] == len(words2)]
 
 
 def main():
