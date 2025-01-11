@@ -2,7 +2,13 @@
 
 class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
-        pass
+        n = len(s)
+        if k > n:
+            return False
+        counter = set()
+        for c in s:
+            counter.symmetric_difference_update(c)
+        return len(counter) <= k
 
 
 def main():
