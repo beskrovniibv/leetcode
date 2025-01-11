@@ -1,39 +1,39 @@
-1400. Construct K Palindrome Strings
+## 1400. Construct K Palindrome Strings
 
-Given a string s and an integer k, return true if you can use all the characters in s to construct k palindrome strings or false otherwise.
+Given a string **s** and an integer **k**, return **true** _if you can use all the characters in **s** to construct **k** palindrome strings or **false** otherwise_.
 
-Example 1:
+**Example 1:**
+>
+>**Input**: s = "annabelle", k = 2
+>
+>**Output**: true
+>
+>**Explanation**: You can construct two palindromes using all characters in s.
+>
+>Some possible constructions "anna" + "elble", "anbna" + "elle", "anellena" + "b"
 
-Input: s = "annabelle", k = 2
+**Example** 2:
+>
+>**Input**: s = "leetcode", k = 3
+>
+>**Output**: false
+>
+>**Explanation**: It is impossible to construct 3 palindromes using all the characters of s.
 
-Output: true
+**Example 3:**
+>
+>**Input**: s = "true", k = 4
+>
+>**Output**: true
+>
+>**Explanation**: The only possible solution is to put each character in a separate string.
 
-Explanation: You can construct two palindromes using all characters in s.
-
-Some possible constructions "anna" + "elble", "anbna" + "elle", "anellena" + "b"
-
-Example 2:
-
-Input: s = "leetcode", k = 3
-
-Output: false
-
-Explanation: It is impossible to construct 3 palindromes using all the characters of s.
-
-Example 3:
-
-Input: s = "true", k = 4
-
-Output: true
-
-Explanation: The only possible solution is to put each character in a separate string.
-
-Constraints:
-
-1 <= s.length <= 105
-
-s consists of lowercase English letters.
-
-1 <= k <= 105
+**Constraints:**
+>
+>1 <= s.length <= 10<sup>5</sup>
+>
+>**s** consists of lowercase English letters.
+>
+>1 <= k <= 10<sup>5</sup>
 
 https://leetcode.com/problems/construct-k-palindrome-strings/
