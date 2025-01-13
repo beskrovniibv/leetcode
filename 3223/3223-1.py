@@ -2,7 +2,18 @@
 
 class Solution:
     def minimumLength(self, s: str) -> int:
-        pass
+        counter = {}
+        for c in s:
+            counter[c] = counter.get(c, 0) + 1
+        result = 0
+        for k, v in counter.items():
+            if v < 3:
+                result += v
+            elif v & 1 == 1:
+                result += 1
+            else:
+                result += 2
+        return result
 
 
 def main():
