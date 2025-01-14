@@ -5,7 +5,14 @@ from typing import List
 
 class Solution:
     def findThePrefixCommonArray(self, A: List[int], B: List[int]) -> List[int]:
-        pass
+        n = len(A)
+        result = [0]*n
+        a, b = set(), set()
+        for i in range(n):
+            a.add(A[i])
+            b.add(B[i])
+            result[i] = len(a.intersection(b))
+        return result
 
 
 def main():
