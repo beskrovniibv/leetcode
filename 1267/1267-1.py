@@ -5,7 +5,25 @@ from typing import List
 
 class Solution:
     def countServers(self, grid: List[List[int]]) -> int:
-        pass
+        row_num, col_num = len(grid), len(grid[0])
+        rows, cols = {}, {}
+        for row in range(row_num):
+            for col in range(col_num):
+                if grid[row][col] == 1:
+                    rows[row] = rows.get(row, [])
+                    rows[row].append((row, col))
+                    cols[col] = cols.get(col, [])
+                    cols[col].append((row, col))
+        result = set()
+        for row in rows:
+            if len(rows[row]) > 1:
+                for srv in rows[row]:
+                    result.add(srv)
+        for col in cols:
+            if len(cols[col]) > 1:
+                for srv in cols[col]:
+                    result.add(srv)
+        return len(result)
 
 
 def main():
