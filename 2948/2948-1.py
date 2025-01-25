@@ -1,15 +1,39 @@
 #! /usr/bin/python python python3
 
+from collections import deque
 from typing import List
 
 
 class Solution:
     def lexicographicallySmallestArray(self, nums: List[int], limit: int) -> List[int]:
-        pass
+        sorted_nums = sorted(nums)
+        group_id = 0
+        groups = {}
+        lists = [deque([])]
+        prev = None
+        for num in sorted_nums:
+            if not prev:
+                prev = num
+                groups[prev] = group_id
+                lists[group_id].append(prev)
+                continue
+            if abs(num - prev) > limit:
+                group_id += 1
+                lists.append(deque([]))
+            prev = num
+            groups[prev] = group_id
+            lists[group_id].append(prev)
+        result = []
+        for num in nums:
+            result.append(lists[groups[num]].popleft())
+        return result
 
 
 def main():
     examples = (
+        (
+            [1, 60, 34, 84, 62, 56, 39, 76, 49, 38], 4, [1, 56, 34, 84, 60, 62, 38, 76, 49, 39]
+        ),
         (
             [1, 5, 3, 9, 8], 2, [1, 3, 5, 8, 9]
         ),
