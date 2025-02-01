@@ -5,7 +5,13 @@ from typing import List
 
 class Solution:
     def isArraySpecial(self, nums: List[int]) -> bool:
-        pass
+        n = len(nums)
+        if n == 1:
+            return True
+        for i in range(n - 1):
+            if (nums[i] + nums[i + 1]) & 1 == 0:
+                return False
+        return True
 
 
 def main():
