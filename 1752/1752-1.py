@@ -5,7 +5,16 @@ from typing import List
 
 class Solution:
     def check(self, nums: List[int]) -> bool:
-        pass
+        n = len(nums)
+        x = None
+        for i in range(1, n):
+            if nums[i] < nums[i - 1]:
+                if x:
+                    return False
+                x = i
+        if not x:
+            return True
+        return nums[-1] <= nums[0]
 
 
 def main():
