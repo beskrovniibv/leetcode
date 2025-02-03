@@ -20,7 +20,7 @@ You are given an array of integers `nums`. Return _the length of the **longest**
 >
 >**Input**: nums = [3,3,3,3]
 >
->*Output**: 1
+>**Output**: 1
 >
 >**Explanation**:
 >
