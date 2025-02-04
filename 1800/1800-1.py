@@ -5,11 +5,23 @@ from typing import List
 
 class Solution:
     def maxAscendingSum(self, nums: List[int]) -> int:
-        pass
+        n = len(nums)
+        t = nums[0]
+        result = t
+        for i in range(1, n):
+            if nums[i] > nums[i - 1]:
+                t += nums[i]
+            else:
+                t = nums[i]
+            result = max(result, t)
+        return result
 
 
 def main():
     examples = (
+        (
+            [100, 10, 1], 100
+        ),
         (
             [10, 20, 30, 5, 10, 50], 65
         ),
