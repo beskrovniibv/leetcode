@@ -5,7 +5,29 @@ from typing import List
 
 class Solution:
     def queryResults(self, limit: int, queries: List[List[int]]) -> List[int]:
-        pass
+        n = len(queries)
+        result = [0]*n
+        balls = {}
+        colors = {}
+        i = 0
+        for x, y in queries:
+            prev = i > 0 and result[i - 1] or 0
+            color = balls.get(x)
+            if color:
+                colors[color].remove(x)
+                if not colors[color]:
+                    prev = prev - 1
+            balls[x] = y
+            t = colors.get(y)
+            if not t:
+                result[i] = prev + 1
+                t = set()
+            else:
+                result[i] = prev
+            t.add(x)
+            colors[y] = t
+            i += 1
+        return result
 
 
 def main():
