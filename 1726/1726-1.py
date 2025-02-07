@@ -5,11 +5,25 @@ from typing import List
 
 class Solution:
     def tupleSameProduct(self,  nums: List[int]) -> int:
-        pass
+        n = len(nums)
+        d = {}
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                product = nums[i]*nums[j] 
+                d[product] = d.get(product, 0) + 1
+        result = 0
+        for _, v in d.items():
+            if v > 1:
+                c = v*(v - 1)//2
+                result += c*8
+        return result
 
 
 def main():
     examples = (
+        (
+            [2, 3, 4, 6, 8, 12], 40
+        ),
         (
             [2, 3, 4, 6], 8
         ),
