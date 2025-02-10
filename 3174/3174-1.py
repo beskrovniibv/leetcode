@@ -6,7 +6,21 @@ class Solution:
 
 
 def main():
-    pass
+    examples = (
+        (
+            "abc", "abc"
+        ),
+        (
+            "cb34", ""
+        ),
+    )
+    solution = Solution()
+    for idx, example in enumerate(examples):
+        s, expected = example
+        got = solution.clearDigits(
+            s=s
+        )
+        assert got == expected, f"Error in sample {idx + 1}: expected {expected}, got {got}."
 
 
 if __name__ == "__main__":
