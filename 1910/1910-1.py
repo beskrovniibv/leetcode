@@ -2,11 +2,16 @@
 
 class Solution:
     def removeOccurrences(self, s: str, part: str) -> str:
-        pass
+        while s.find(part) != -1:
+            s = s.replace(part, '', 1)
+        return s
 
 
 def main():
     examples = (
+        (
+            "aabababa", "aba", "ba"
+        ),
         (
             "daabcbaabcbc", "abc", "dab"
         ),
