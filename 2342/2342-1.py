@@ -5,7 +5,20 @@ from typing import List
 
 class Solution:
     def maximumSum(self, nums: List[int]) -> int:
-        pass
+        sums = {}
+        result = -1
+        for num in nums:
+            s = 0
+            k = num
+            while k != 0:
+                s += k % 10
+                k //= 10
+            sums[s] = sums.get(s, [])
+            if sums[s]:
+                for term in sums[s]:
+                    result = max(result, term + num)
+            sums[s].append(num)
+        return result
 
 
 def main():
