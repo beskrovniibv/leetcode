@@ -2,7 +2,19 @@
 
 class Solution:
     def getHappyString(self, n: int, k: int) -> str:
-        pass
+        st = [""]
+        idx = 0
+        while st:
+            s = st.pop()
+            if len(s) == n:
+                idx += 1
+                if idx == k:
+                    return s
+                continue
+            for ch in "cba":
+                if len(s) == 0 or s[-1] != ch:
+                    st.append(s + ch)
+        return ""
 
 
 def main():
