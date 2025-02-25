@@ -5,7 +5,18 @@ from typing import List
 
 class Solution:
     def numOfSubarrays(self, arr: List[int]) -> int:
-        pass
+        odd, even = 0, 1
+        s = 0
+        result = 0
+        for e in arr:
+            s += e
+            if s & 1 == 1:
+                result += even
+                odd += 1
+            else:
+                result += odd
+                even += 1
+        return result % (int(1e9) + 7)
 
 
 def main():
