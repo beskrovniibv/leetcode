@@ -5,7 +5,14 @@ from typing import List
 
 class Solution:
     def maxAbsoluteSum(self, nums: List[int]) -> int:
-        pass
+        mx, mn = -1e4 - 1, 1e4 + 1
+        bmx, bmn = None, None
+        for num in nums:
+            mx = max(num, mx + num)
+            mn = min(num, mn + num)
+            bmx = bmx and max(bmx, mx) or mx
+            bmn = bmn and min(bmn, mn) or mn
+        return max(abs(bmx), abs(bmn))
 
 
 def main():
@@ -28,3 +35,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
