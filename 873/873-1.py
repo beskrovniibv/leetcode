@@ -5,7 +5,20 @@ from typing import List
 
 class Solution:
     def lenLongestFibSubseq(self, arr: List[int]) -> int:
-        pass
+        result = 0
+        total = set(arr)
+        n = len(arr)
+        for i in range(n - 2):
+            for j in range(i + 1, n - 1):
+                pr = 2
+                p1 = arr[i]
+                p2 = arr[j]
+                while p1 + p2 in total:
+                    pr += 1
+                    p1, p2 = p2, p1 + p2
+                if pr > 2:
+                    result = max(result, pr)
+        return result
 
 
 def main():
