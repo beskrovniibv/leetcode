@@ -5,7 +5,18 @@ from typing import List
 
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
-        pass
+        n = len(nums)
+        result = [0]*n
+        for i in range(1, n):
+            if nums[i - 1] == nums[i]:
+                nums[i - 1] *= 2
+                nums[i] = 0
+        i = 0
+        for num in nums:
+            if num:
+                result[i] = num
+                i += 1
+        return result
 
 
 def main():
