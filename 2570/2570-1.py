@@ -5,7 +5,31 @@ from typing import List
 
 class Solution:
     def mergeArrays(self, nums1: List[List[int]], nums2: List[List[int]]) -> List[List[int]]:
-        pass
+        result = []
+        n, m = len(nums1), len(nums2)
+        i, j = 0, 0
+        while i < n or j < m:
+            if i < n and j < m:
+                n1, n2 = nums1[i], nums2[j]
+                if n1[0] == n2[0]:
+                    result.append([n1[0], n1[1] + n2[1]])
+                    i += 1
+                    j += 1
+                elif n1[0] < n2[0]:
+                    result.append([n1[0], n1[1]])
+                    i += 1
+                else:
+                    result.append([n2[0], n2[1]])
+                    j += 1
+            elif i < n:
+                n1 = nums1[i]
+                result.append([n1[0], n1[1]])
+                i += 1
+            elif j < m:
+                n2 = nums2[j]
+                result.append([n2[0], n2[1]])
+                j += 1
+        return result
 
 
 def main():
