@@ -5,7 +5,23 @@ from typing import List
 
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
-        pass
+        n = len(nums)
+        lt, gt = 0, 0
+        result = [pivot]*n
+        for num in nums:
+            if num < pivot:
+                lt += 1
+            elif num > pivot:
+                gt += 1
+        li, ri = 0, n - gt
+        for num in nums:
+            if num < pivot:
+                result[li] = num
+                li += 1
+            elif num > pivot:
+                result[ri] = num
+                ri += 1
+        return result
 
 
 def main():
