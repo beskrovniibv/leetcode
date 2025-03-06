@@ -5,7 +5,22 @@ from typing import List
 
 class Solution:
     def findMissingAndRepeatedValues(self,  grid: List[List[int]]) -> List[int]:
-        pass
+        n = 1
+        s0 = 0
+        s02 = 0
+        s1 = 0
+        s12 = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                s0 += n
+                s1 += grid[i][j]
+                s02 += n**2
+                s12 += grid[i][j] ** 2
+                n += 1
+
+        v = ((s12 - s02)//(s1 - s0) + (s1 - s0)) // 2
+        u = ((s12 - s02)//(s1 - s0) - (s1 - s0)) // 2
+        return [v, u]
 
 
 def main():
