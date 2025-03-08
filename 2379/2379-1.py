@@ -2,7 +2,20 @@
 
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
-        pass
+        n, l, r = len(blocks), 0, 0
+        c, mx = 0, 0
+        while r < n:
+            if blocks[r] == "B":
+                c += 1
+            r += 1
+            if r - l > k:
+                if blocks[l] == "B":
+                    c -= 1
+                l += 1
+            mx = max(mx, c)
+            if mx == k:
+                return 0
+        return k - mx
 
 
 def main():
