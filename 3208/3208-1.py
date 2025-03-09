@@ -5,7 +5,22 @@ from typing import List
 
 class Solution:
     def numberOfAlternatingGroups(self, colors: List[int], k: int) -> int:
-        pass
+        result = 0
+        n = len(colors)
+        prv = colors[0]
+        cur_len = 1
+        for i in range(1, n + k - 1):
+            idx = i % n
+            nxt = colors[idx]
+            if nxt == prv:
+                cur_len = 1
+                prv = nxt
+                continue
+            cur_len += 1
+            if cur_len >= k:
+                result += 1
+            prv = nxt
+        return result
 
 
 def main():
