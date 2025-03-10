@@ -1,52 +1,51 @@
-3306. Count of Substrings Containing Every Vowel and K Consonants II
-Medium
-Topics
-Companies
-Hint
-You are given a string word and a non-negative integer k.
+## 3306. Count of Substrings Containing Every Vowel and K Consonants II
 
-Return the total number of substrings of word that contain every vowel ('a', 'e', 'i', 'o', and 'u') at least once and exactly k consonants.
+You are given a string `word` and a **non-negative** integer `k`.
 
- 
+Return the total number of substrings of `word` that contain every vowel (`'a'`, `'e'`, `'i'`, `'o'`, and `'u'`) **at least** once and **exactly** `k` consonants.
 
-Example 1:
+**Example 1:**
+>
+>**Input**: word = "aeioqq", k = 1
+>
+>**Output**: 0
+>
+>**Explanation**:
+>
+>There is no substring with every vowel.
 
-Input: word = "aeioqq", k = 1
+**Example 2:**
+>
+>**Input**: word = "aeiou", k = 0
+>
+>**Output**: 1
+>
+>**Explanation**:
+>
+>The only substring with every vowel and zero consonants is `word[0..4]`, which is `"aeiou"`.
 
-Output: 0
+**Example 3:**
+>
+>**Input**: word = "ieaouqqieaouqq", k = 1
+>
+>**Output**: 3
+>
+>**Explanation**:
+>
+>The substrings with every vowel and one consonant are:
+>
+>- `word[0..5]`, which is `"ieaouq"`.
+>
+>- `word[6..11]`, which is `"qieaou"`.
+>
+>- `word[7..12]`, which is `"ieaouq"`.
 
-Explanation:
+**Constraints:**
 
-There is no substring with every vowel.
+- <code>5 <= word.length <= 2 * 10<sup>5</sup></code>
 
-Example 2:
+- word consists only of lowercase English letters.
 
-Input: word = "aeiou", k = 0
+- `0 <= k <= word.length - 5`
 
-Output: 1
-
-Explanation:
-
-The only substring with every vowel and zero consonants is word[0..4], which is "aeiou".
-
-Example 3:
-
-Input: word = "ieaouqqieaouqq", k = 1
-
-Output: 3
-
-Explanation:
-
-The substrings with every vowel and one consonant are:
-
-word[0..5], which is "ieaouq".
-word[6..11], which is "qieaou".
-word[7..12], which is "ieaouq".
- 
-
-Constraints:
-
-5 <= word.length <= 2 * 105
-word consists only of lowercase English letters.
-0 <= k <= word.length - 5
 https://leetcode.com/problems/count-of-substrings-containing-every-vowel-and-k-consonants-ii/
