@@ -38,5 +38,6 @@ Given an array `nums` sorted in **non-decreasing** order, return _the maximum be
 
 - `nums` is sorted in a **non-decreasing order**.
 
-Follow up: Can you solve the problem in O(log(n)) time complexity?
+**Follow up**: Can you solve the problem in `O(log(n))` time complexity?
+
 https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/
