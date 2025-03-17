@@ -5,7 +5,13 @@ from typing import List
 
 class Solution:
     def divideArray(self, nums: List[int]) -> bool:
-        pass
+        d = {}
+        for num in nums:
+            d[num] = d.get(num, 0) ^ num
+        for k in d:
+            if d[k]:
+                return False
+        return True
 
 
 def main():
