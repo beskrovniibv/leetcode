@@ -5,7 +5,26 @@ from typing import List
 
 class Solution:
     def findAllRecipes(self, recipes: List[str], ingredients: List[List[str]], supplies: List[str]) -> List[str]:
-        pass
+        n = len(recipes)
+        result = []
+        s = set(supplies)
+        rb = [False]*n
+        need = True
+        while need:
+            need = False
+            for i in range(n):
+                if rb[i]:
+                    continue
+                r = recipes[i]
+                for e in ingredients[i]:
+                    if e not in s:
+                        break
+                else:
+                    result.append(r)
+                    s.add(r)
+                    need = True
+                    rb[i] = True
+        return result
 
 
 def main():
