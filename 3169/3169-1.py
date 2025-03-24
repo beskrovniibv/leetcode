@@ -9,7 +9,25 @@ class Solution:
 
 
 def main():
-    pass
+    examples = (
+        (
+            10, [[5, 7], [1, 3], [9, 10]], 2
+        ),
+        (
+            5, [[2, 4], [1, 3]], 1
+        ),
+        (
+            6, [[1, 6]], 0
+        ),
+    )
+    solution = Solution()
+    for idx, example in enumerate(examples):
+        days, meetings, expected = example
+        got = solution.countDays(
+            days=days,
+            meetings=meetings
+        )
+        assert got == expected, f"Error in sample {idx + 1}: expected {expected}, got {got}."
 
 
 if __name__ == "__main__":
