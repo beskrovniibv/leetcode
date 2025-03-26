@@ -5,7 +5,14 @@ from typing import List
 
 class Solution:
     def countDays(self, days: int, meetings: List[List[int]]) -> int:
-        pass
+        result = 0
+        last = 0
+        for b, e in sorted(meetings):
+            if b > last + 1:
+                result += b - last - 1
+            last = max(e, last)
+        result += days - last
+        return result
 
 
 def main():
