@@ -5,7 +5,16 @@ from typing import List
 
 class Solution:
     def minimumIndex(self, nums: List[int]) -> int:
-        pass
+        n = len(nums)
+        f1, f2 = {}, {}
+        for num in nums:
+            f1[num] = f1.get(num, 0) + 1
+        for i, num in enumerate(nums):
+            f1[num] -= 1
+            f2[num] = f2.get(num, 0) + 1
+            if f2[num]*2 > i + 1 and f1[num]*2 > n - i - 1:
+                return i
+        return -1
 
 
 def main():
