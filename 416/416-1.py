@@ -5,11 +5,23 @@ from typing import List
 
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
-        pass
+        _sum = sum(nums)
+        if _sum & 1 == 1:
+            return False
+        _half = _sum // 2
+        dp = [False]*(_half + 1)
+        dp[0] = True
+        for num in nums:
+            for i in range(_half, num - 1, -1):
+                dp[i] = dp[i] or dp[i - num]
+        return dp[_half]
 
 
 def main():
     examples = (
+        (
+            [14, 9, 8, 4, 3, 2], True
+        ),
         (
             [1, 5, 11, 5], True
         ),
