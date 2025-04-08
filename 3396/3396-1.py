@@ -5,7 +5,23 @@ from typing import List
 
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        pass
+        n = len(nums)
+        result = 0
+        d = {}
+        for num in nums:
+            d[num] = d.get(num, 0) + 1
+        l = 0
+        s = set(d.values())
+        while s != {1} and len(s) != 0:
+            result += 1
+            for i in range(3):
+                if l >= n:
+                    break
+                d[nums[l]] -= 1
+                l += 1
+            s = set(d.values())
+            s.discard(0)
+        return result
 
 
 def main():
