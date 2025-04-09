@@ -5,7 +5,16 @@ from typing import List
 
 class Solution:
     def minOperations(self, nums: List[int], k: int) -> int:
-        pass
+        result = 0
+        v = set()
+        for num in nums:
+            if num < k:
+                return -1
+            if num > k:
+                if num not in v:
+                    result += 1
+                    v.add(num)
+        return result
 
 
 def main():
