@@ -5,7 +5,21 @@ from typing import List
 
 class Solution:
     def isZeroArray(self, nums: List[int], queries: List[List[int]]) -> bool:
-        pass
+        n = len(nums)
+        diff = [0] + [0]*n
+        for query in queries:
+            l, r = query
+            diff[l] += 1
+            diff[r + 1] -= 1
+        cv = 0
+        possible = True
+        for i in range(n):
+            cv += diff[i]
+            if cv < nums[i]:
+                possible = False
+            if not possible:
+                break
+        return possible
 
 
 def main():
