@@ -28,11 +28,11 @@ Return `true` if it is _possible_ to transform ё into a **Zero Array** after pr
 
 **Example 2:**
 >
->*Input*: nums = [4,3,2,1], queries = [[1,3],[0,2]]
+>**Input**: nums = [4,3,2,1], queries = [[1,3],[0,2]]
 >
->*Output*: false
+>**Output**: false
 >
->*Explanation*:
+>**Explanation**:
 >
 >- For i = 0:
 >
