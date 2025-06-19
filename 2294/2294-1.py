@@ -5,7 +5,19 @@ from typing import List
 
 class Solution:
     def partitionArray(self, nums: List[int], k: int) -> int:
-        pass
+        n = len(nums)
+        result = 1
+        nums.sort()
+        i = 0
+        mn, mx = nums[i], nums[i]
+        while i < n:
+            if nums[i] > mx:
+                mx = nums[i]
+            if mx - mn > k:
+                mn = nums[i]
+                result += 1
+            i += 1
+        return result
 
 
 def main():
