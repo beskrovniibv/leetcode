@@ -5,7 +5,13 @@ from typing import List
 
 class Solution:
     def divideString(self, s: str, k: int, fill: str) -> List[str]:
-        pass
+        n = len(s)
+        c = (n + k - 1) // k
+        result = [[fill]*k for _ in range(c)]
+        for i in range(n):
+            w, j = i // k, i % k
+            result[w][j] = s[i]
+        return [''.join(r) for r in result]
 
 
 def main():
