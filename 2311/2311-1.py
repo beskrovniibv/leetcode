@@ -2,7 +2,20 @@
 
 class Solution:
     def longestSubsequence(self, s: str, k: int) -> int:
-        pass
+        n = len(s)
+        v = int(s, 2)
+        if v <= k:
+            return n
+        c = 0
+        q = 2**(n - 1)
+        l = 0
+        while v > k:
+            if s[l] == "1":
+                v -= q
+                c += 1
+            l += 1
+            q >>= 1
+        return n - c
 
 
 def main():
