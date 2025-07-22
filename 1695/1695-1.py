@@ -2,9 +2,27 @@
 
 from typing import List
 
+
 class Solution:
     def maximumUniqueSubarray(self, nums: List[int]) -> int:
-        pass
+        result = 0
+        n = len(nums)
+        l, r = 0, 0
+        d = {}
+        s = 0
+        while r < n:
+            v = nums[r]
+            if d.get(v, 0) != 0:
+                while d.get(v) > 0:
+                    v0 = nums[l]
+                    s -= v0
+                    d[v0] -= 1
+                    l += 1
+            r += 1
+            d[v] = d.get(v, 0) + 1
+            s += v
+            result = max(result, s)
+        return result
 
 
 def main():
