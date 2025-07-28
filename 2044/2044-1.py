@@ -4,7 +4,20 @@ from typing import List
 
 class Solution:
     def countMaxOrSubsets(self, nums: List[int]) -> int:
-        pass
+        n = len(nums)
+        target = 0
+        for v in nums:
+            target |= v
+        result = 0
+        for mask in range(1, 2**n):
+            temp = 0
+            for idx in range(n):
+                i = (mask >> idx) & 1
+                if i == 1:
+                    temp |= nums[idx]
+            if temp == target:
+                result += 1
+        return result
 
 
 def main():
